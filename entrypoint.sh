@@ -15,6 +15,11 @@ sleep 1
 /opt/novnc/utils/novnc_proxy --vnc localhost:5900 --listen 6080 &
 sleep 1
 
-# Явно задаём DISPLAY, если не передан
 export DISPLAY=${DISPLAY:-:1}
+
+echo "DISPLAY=$DISPLAY"
+ls -l /app
+python3 main.py
+echo "main.py exited with $?"
+
 python3 main.py
