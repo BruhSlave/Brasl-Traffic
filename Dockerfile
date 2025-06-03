@@ -21,10 +21,7 @@ WORKDIR /app
 
 EXPOSE 6080
 
-CMD ["bash", "-c", "\
-    Xvfb :1 -screen 0 ${SCREEN_SIZE} & \
-    fluxbox & \
-    x11vnc -display :1 -nopw -forever -shared -bg -rfbport 5900 && \
-    /opt/novnc/utils/novnc_proxy --vnc localhost:5900 --listen 6080 & \
-    python3 main.py"]
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+CMD ["/entrypoint.sh"]
 
