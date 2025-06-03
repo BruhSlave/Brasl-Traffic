@@ -6,7 +6,7 @@ ENV SCREEN_SIZE=1800x1000x24
 
 # Обновления и зависимости
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    xvfb x11vnc fluxbox curl git python3-pip \
+    xvfb x11vnc fluxbox curl git python3-pip procps  \
     libx11-6 libxext6 libxrender1 libxrandr2 libxv1 libxss1 libgl1-mesa-glx \
     && pip install --no-cache-dir pygame \
     && git clone --depth 1 https://github.com/novnc/noVNC.git /opt/novnc \
